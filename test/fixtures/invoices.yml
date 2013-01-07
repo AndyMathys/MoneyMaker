@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  partner_id: 1
+  description: MyString
+  total: 1
+  vat: 1
+  creation_date: 2013-01-05
+  payment_date: 2013-01-05
+  number: 1
+
+two:
+  partner_id: 1
+  description: MyString
+  total: 1
+  vat: 1
+  creation_date: 2013-01-05
+  payment_date: 2013-01-05
+  number: 1

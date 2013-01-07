@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<img src="http://www.mindloop.be/wp-content/uploads/logo_h.png" />
+<p>
+  <b>Invoice Number:</b>
+  # <%= @invoice.number %>
+</p>
+
+<h2>Seller</h2>
+<p class='sellerinfo'>
+Mindloop BVBA</br>
+Boogbosstraat 33</br>
+3560 Lummen </br>
+0478636835 </br>
+BE-0807147292</br>
+KBC 735-0212045-88</br>
+</p>
+
+<h2>Billed to</h2>
+<p>
+<%= @invoice.partner.name %></br>
+<%= simple_format h(@invoice.partner.address) %>
+<%= @invoice.partner.vat %>
+</p>
+
+<h2>Invoice details</h2>
+<p>
+  <b>Creation date:</b>
+  <%= @invoice.creation_date %>
+</p>
+
+<p class="duedate">
+  <b>Payment due:</b>
+  <%= @invoice.payment_date %>
+  (
+    <%= @invoice.payment_date.mjd - @invoice.creation_date.mjd   %>
+  )
+</p>
+
+
+<p>
+  <b>Description:</b>
+  <%= @invoice.description %>
+</p>
+
+<p>
+  <b>Total (vat ex.):</b>
+  <%= @invoice.total %> &euro;
+
+</p>
+
+<p>
+  <b>Vat:</b>
+  <%= @invoice.total * Float(@invoice.vat) / 100 %> &euro;
+
+  (<%= @invoice.vat %> %)
+</p>
+
+<p>
+  <b>Total (vat inc.):</b>
+  <%=  '%.2f' % (@invoice.total * (1.00 +  Float(@invoice.vat) / 100)) %> &euro;
+</p>
+<% if !@print  %>
+    <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+    <%= link_to 'Back', invoices_path %> |
+    <%= link_to 'Print view', invoice_path( @invoice, :print => 1 ) %> 
+
+<% end %>
