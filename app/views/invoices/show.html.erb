@@ -33,7 +33,7 @@ KBC 735-0212045-88</br>
   <b>Payment due:</b>
   <%= @invoice.payment_date %>
   (
-    <%= @invoice.payment_date.mjd - @invoice.creation_date.mjd   %>
+    <%= @invoice.number_of_days %>
   )
 </p>
 
@@ -51,14 +51,14 @@ KBC 735-0212045-88</br>
 
 <p>
   <b>Vat:</b>
-  <%= @invoice.total * Float(@invoice.vat) / 100 %> &euro;
+  <%= @invoice.vat_amount %> &euro;
 
   (<%= @invoice.vat %> %)
 </p>
 
 <p>
   <b>Total (vat inc.):</b>
-  <%=  '%.2f' % (@invoice.total * (1.00 +  Float(@invoice.vat) / 100)) %> &euro;
+  <%=  @invoice.total_amount %> &euro;
 </p>
 <% if !@print  %>
     <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
