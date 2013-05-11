@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :partner_id %><br />
-    <%= f.number_field :partner_id %>
+    <%= collection_select :invoice, :partner_id, Partner.all, :id, :name,{:selected => @invoice.partner_id} %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
@@ -35,6 +35,12 @@
     <%= f.label :payment_date %><br />
     <%= f.date_select :payment_date %>
   </div>
+
+  <div class="field">
+    <%= f.label :paid %><br />
+    <%= f.check_box :paid %>
+  </div>
+
   <div class="field">
     <%= f.label :number %><br />
     <%= f.number_field :number %>
