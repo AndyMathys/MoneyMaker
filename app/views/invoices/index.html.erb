@@ -16,7 +16,7 @@
   </tr>
 
 <% @invoices.each do |invoice| %>
-  <tr>
+<tr class="<%= invoice.payment_status%>">
     <td><%= invoice.partner.name %></td>
     <td><%= invoice.description %></td>
     <td><%= invoice.total %></td>
