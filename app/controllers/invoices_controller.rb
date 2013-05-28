@@ -24,6 +24,7 @@ class InvoicesController < ApplicationController
   # GET /invoices/new
   # GET /invoices/new.json
   def new
+    @lastInvoice = Invoice.find(:all, :order => "id desc", :limit => 1).first()
     @invoice = Invoice.new
     @partners = Partner.find(:all)
 
@@ -35,6 +36,7 @@ class InvoicesController < ApplicationController
 
   # GET /invoices/1/edit
   def edit
+
     @invoice = Invoice.find(params[:id])
   end
 

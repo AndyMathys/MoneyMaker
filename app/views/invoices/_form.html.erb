@@ -43,7 +43,12 @@
 
   <div class="field">
     <%= f.label :number %><br />
-    <%= f.number_field :number %>
+
+    <%if @lastInvoice %>
+        <%=f.number_field :number, :value => @lastInvoice.number+1 %>
+    <% else %>
+        <%=f.number_field :number %>
+    <% end%>
   </div>
   <div class="actions">
     <%= f.submit %>
