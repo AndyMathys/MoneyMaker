@@ -2,4 +2,4 @@
 
 An extremely simple invoicing system in rails. I'm using this one for my own invoices and intend to only develop features that I *really* need.
 
-Just a way for me to get some idea of what rails is all about.
+Just a way for me to get an idea of what rails is all about.
