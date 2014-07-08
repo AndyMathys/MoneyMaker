@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130511145710) do
+ActiveRecord::Schema.define(:version => 20140708174458) do
 
   create_table "invoices", :force => true do |t|
     t.integer  "partner_id"
     t.string   "description"
-    t.integer  "total"
+    t.decimal  "total"
     t.integer  "vat"
     t.date     "creation_date"
     t.date     "payment_date"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20130511145710) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.boolean  "paid"
+    t.string   "currency"
   end
 
   create_table "partners", :force => true do |t|

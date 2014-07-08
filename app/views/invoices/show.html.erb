@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<img src="http://www.mindloop.be/wp-content/uploads/logo_h.png" />
 <p>
   <b>Invoice Number:</b>
   # <%= @invoice.number %>
@@ -45,20 +44,23 @@ KBC 735-0212045-88</br>
 
 <p>
   <b>Total (vat ex.):</b>
-  <%= @invoice.total %> &euro;
+  <%= @invoice.total %> 
+  <%= @invoice.currency %> 
 
 </p>
 
 <p>
   <b>Vat:</b>
-  <%= @invoice.vat_amount %> &euro;
+  <%= @invoice.vat_amount %>
+  <%= @invoice.currency %> 
 
   (<%= @invoice.vat %> %)
 </p>
 
 <p>
   <b>Total (vat inc.):</b>
-  <%=  @invoice.total_amount %> &euro;
+  <%=  @invoice.total_amount %>
+  <%= @invoice.currency %> 
 </p>
 <% if !@print  %>
     <%= link_to 'Edit', edit_invoice_path(@invoice) %> |

@@ -21,8 +21,14 @@
   </div>
   <div class="field">
     <%= f.label :total %><br />
-    <%= f.number_field :total %>
+    <%= f.number_field :total, :class => 'text_field', :step => 0.01 %>
   </div>
+
+  <div class="field">
+    <%= f.label :currency %><br />
+    <%= f.text_field :currency %>
+  </div>
+
   <div class="field">
     <%= f.label :vat %><br />
     <%= f.number_field :vat %>
